@@ -1,0 +1,17 @@
+.navbar-brand{
+    white-space: pre-wrap!important;
+}
+
+.kudos {
+    background-image: url("../images/card.jpg")!important;
+    background-size: cover!important; 
+    background-position: bottom!important;
+}
+
+.card-text {
+    font-size: 25px!important;
+}
+
+.card-header {
+    font-size: 25px!important;
+}
