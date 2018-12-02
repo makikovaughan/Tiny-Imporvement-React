@@ -10,9 +10,9 @@ import {
 const Header = () => (
 
     
-          <header className="App-header bg-white">
+          <header className="bg-white">
             <Row>
-              <Col xs="12">
+              <Col xs="12" className="mb-5">
                 <Navbar color="light" className="bg-light justify-content-center">
                   <NavbarBrand href="#">
                     <h1><img src={logo} className="img-fluid" alt="responsive"/> Tiny Improvement</h1>
