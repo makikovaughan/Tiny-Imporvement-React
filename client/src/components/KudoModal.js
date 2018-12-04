@@ -36,17 +36,15 @@ class KudoModal extends React.Component {
   //Close&Open Modal
   toggle = () => {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
+      isError: false
     });
-    if (this.state.modal) {
-      window.location.reload();
-    }
   }
 
+  //Get user list and store on userList
   getUserList = () => {
     $.get(`/api/users`)
       .then((result) => {
-        console.log(result);
         this.setState({ userList: result.data });
       })
       .catch((error) => {
@@ -54,11 +52,11 @@ class KudoModal extends React.Component {
       });
   }
 
+  //Post the new kudos and close the modal window.
   postKudos = (newKudo) => {
     console.log(newKudo);
     $.post(`/api/kudos`, newKudo)
     .then((result)=>{
-      console.log(result);
       this.toggle();
     })
     .catch((error)=>{
@@ -67,6 +65,7 @@ class KudoModal extends React.Component {
     window.location.reload();
   }
 
+  //Get the input value
   changeHandler = (event) => {
 
     this.setState({
@@ -75,6 +74,7 @@ class KudoModal extends React.Component {
 
   }
 
+  //When the button is pressed on the modal window, this will be executed
   clickHandler = (event) => {
     event.preventDefault();
     const newKudo = {
@@ -96,7 +96,6 @@ class KudoModal extends React.Component {
       });
     }
     else {
-      console.log("Here");
       this.postKudos(newKudo);
       this.setState({
         isError: false
@@ -109,6 +108,7 @@ class KudoModal extends React.Component {
     this.getUserList();
   }
 
+  //Render the modal window
   render() {
     return (
       <div>

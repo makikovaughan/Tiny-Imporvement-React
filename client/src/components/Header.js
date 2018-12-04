@@ -7,6 +7,7 @@ import {
     NavbarBrand,
   } from 'reactstrap';
 
+//Render the header
 const Header = () => (
 
     

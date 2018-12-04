@@ -6,6 +6,7 @@ import {
     CardText
 } from 'reactstrap';
 
+//Render the kudo lists
 const KudoList = (props) => (
 
     <div>

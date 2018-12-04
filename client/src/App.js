@@ -74,6 +74,7 @@ class App extends Component {
     this.getUserList();
   }
 
+  //Render the index.html
   render() {
     return (
       <div className="App">
