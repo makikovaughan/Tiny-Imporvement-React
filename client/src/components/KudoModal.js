@@ -62,7 +62,6 @@ class KudoModal extends React.Component {
     .catch((error)=>{
       console.log(error);
     })
-    window.location.reload();
   }
 
   //Get the input value
@@ -100,6 +99,7 @@ class KudoModal extends React.Component {
       this.setState({
         isError: false
       });
+      window.location.reload();
     }
   }
 

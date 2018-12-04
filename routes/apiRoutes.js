@@ -44,6 +44,8 @@ module.exports = function (app) {
     app.get("/api/kudos", function (req, res) {
 
         Kudo.find({})
+            .populate('from_user')
+            .populate('to_user')
             .then(function (dbKudo) {
                 res.json(dbKudo);
             })

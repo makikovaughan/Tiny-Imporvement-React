@@ -16,8 +16,8 @@ const KudoList = (props) => (
                             {kudo.title}
                         </CardHeader>
                         <CardBody>
-                            <CardText>From: {kudo.from_user}</CardText>
-                            <CardText>To: {kudo.to_user}</CardText>
+                            <CardText>From: {kudo.from_user.username}</CardText>
+                            <CardText>To: {kudo.to_user.username}</CardText>
                              <CardText>{kudo.body}</CardText>          
                         </CardBody>
                     </Card>

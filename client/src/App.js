@@ -23,10 +23,10 @@ class App extends Component {
     isUpdating: false
   }
 
+  //Get Kudo List
   getKudos = () => {
     $.get('/api/kudos')
     .then((result) => {
-      console.log(result);
       this.setState({kudoList: result.data});
     })
     .catch((error)=>{
@@ -34,39 +34,17 @@ class App extends Component {
     });
   }
 
+  //Get user list
   getUserList = () => {
     $.get(`/api/users`)
     .then((result) => {
-      console.log(result);
       this.setState({userList: result.data});
-      this.findUser();
     })
     .catch((error)=>{
       console.log(error);
     });
   }
 
-  findUser = () => {
-    // Copies the kudoList array from state and stores it in a kudo Array
-    let kudoArray = this.state.kudoList.concat();
-
-    // Copies the userList array from state and stores it in a user Array
-    const userArray = this.state.userList.concat();
-
-    for(let i=0; i < kudoArray.length; i++){
-
-      //Get the user name based on user id
-      const fromUser = userArray.filter(user => user._id.includes(kudoArray[i].from_user));
-      const toUser = userArray.filter(user => user._id.includes(kudoArray[i].to_user));
-
-      //Switch the user information from id to user name
-      kudoArray[i].from_user = fromUser[0].username;
-      kudoArray[i].to_user = toUser[0].username;
-    }
-    
-    //Apply the change to the list.
-    this.setState({ kudoList: kudoArray });
-  }
 
   //Execute this when the mount is done.
   componentDidMount() {
