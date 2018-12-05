@@ -62,7 +62,7 @@ class App extends Component {
             <Col xs="12" md="3">
               <Card className="border-0">
                 <CardBody>
-                  <KudoModal />
+                  <KudoModal getKudos={this.getKudos} />
                 </CardBody>
               </Card>
             </Col>

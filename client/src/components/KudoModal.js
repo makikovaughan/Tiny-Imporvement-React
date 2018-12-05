@@ -58,6 +58,7 @@ class KudoModal extends React.Component {
     $.post(`/api/kudos`, newKudo)
     .then((result)=>{
       this.toggle();
+      this.props.getKudos();
     })
     .catch((error)=>{
       console.log(error);
@@ -99,7 +100,6 @@ class KudoModal extends React.Component {
       this.setState({
         isError: false
       });
-      window.location.reload();
     }
   }
 
